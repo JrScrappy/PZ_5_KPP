@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Transport</title>
+
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- See configuration in WebMvcConfig.java -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+
+    <script th:src="@{/jquery/jquery.min.js}"></script>
+    <script th:src="@{/popper/popper.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+
+    <!-- <style>
+    th, td {
+        padding: 5px;
+    }
+    </style> -->
+
+</head>
+
+<body>
+<!-- Include _menu.html -->
+<th:block th:include="/_menu"></th:block>
+
+<div class="container">
+    <h2>Transport</h2>
+
+    <table class="table table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Count seat places</th>
+            <th>Max speed</th>
+            <th>Load capacity</th>
+            <th>Transport type</th>
+            <th>Color</th>
+        </tr>
+        <tr th:each="transportInfo : ${allTransport}">
+            <td th:utext="${transportInfo.id}">..</td>
+            <td th:utext="${transportInfo.countSeatPlaces}">..</td>
+            <td th:utext="${transportInfo.maxSpeed}">..</td>
+            <td th:utext="${transportInfo.loadCapacity}">..</td>
+            <td th:utext="${transportInfo.transportType}">..</td>
+            <td th:utext="${transportInfo.color}">..</td>
+        </tr>
+
+    </table>
+    <input type="button" value="Add new transport" class="btn btn-success"
+           onclick="window.location.href='/transport/new'"/>
+
+</div>
+</body>
+</html>
