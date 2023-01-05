@@ -20,17 +20,17 @@
 <body>
 <!-- Include _menu.html -->
 <th:block th:include="/_menu"></th:block>
-
+<div style="padding-left: 40px; padding-right: 40px; text-align:center">
 <h2>Delete color</h2>
 
 <form th:action="@{/color/delete}" th:object="${form}" method="post">
   <div class="form-group">
     <label>Id</label>
-    <input type="text" class="form-control" placeholder="Enter color name" th:field="*{name}"/>
+    <input style="width: 450px; margin: auto" type="text" class="form-control" placeholder="Enter color name" th:field="*{name}"/>
     <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
   </div>
   <input type="submit" class="btn btn-success" value="Save"/>
 </form>
-
+</div>
 </body>
 </html>

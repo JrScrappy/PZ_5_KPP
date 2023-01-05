@@ -15,6 +15,7 @@
 <body>
 <!-- Include _menu.html -->
 <th:block th:include="/_menu"></th:block>
+<div style="padding-left: 40px; padding-right: 40px; text-align:center">
 <h2>Add transport</h2>
 
 <form th:action="@{/transport}" th:object="${transport}" method="POST">
@@ -22,16 +23,16 @@
     <div class="form-group">
         <input type="hidden" th:field="*{id}"/>
         <label>Max speed</label>
-        <input type="text" class="form-control" placeholder="Enter max speed" th:field="*{maxSpeed}"/>
+        <input style="width: 450px; margin: auto" type="text" class="form-control" placeholder="Enter max speed" th:field="*{maxSpeed}"/>
         <span th:if="${#fields.hasErrors('maxSpeed')}" th:errors="*{maxSpeed}">Error</span>
         <label>Count seat places</label>
-        <input type="text" class="form-control" placeholder="" th:field="*{countSeatPlaces}"/>
+        <input style="width: 450px; margin: auto" type="text" class="form-control" placeholder="" th:field="*{countSeatPlaces}"/>
         <span th:if="${#fields.hasErrors('countSeatPlaces')}" th:errors="*{countSeatPlaces}">Error</span>
         <label>Load capacity</label>
-        <input type="text" class="form-control" placeholder="" th:field="*{loadCapacity}"/>
+        <input style="width: 450px; margin: auto" type="text" class="form-control" placeholder="" th:field="*{loadCapacity}"/>
         <span th:if="${#fields.hasErrors('loadCapacity')}" th:errors="*{loadCapacity}">Error</span>
         <label>Color</label>
-        <select th:field="${transport.color}" class="form-control">
+        <select style="width: 500px; margin: auto" th:field="${transport.color}" class="form-control">
             <option th:each="elem : ${colors}"
                     th:value="${elem.color}"
                     th:utext="${elem.color}">
@@ -39,7 +40,7 @@
         </select>
 
         <label>Type</label>
-        <select th:field="${transport.transportType}" class="form-control">
+        <select style="width: 500px; margin: auto" th:field="${transport.transportType}" class="form-control">
             <option th:each="elem : ${types}"
                     th:value="${elem.name}"
                     th:utext="${elem.name}">
@@ -49,6 +50,6 @@
     </div>
     <input type="submit" class="btn btn-success" value="Save"/>
 </form>
-
+</div>
 </body>
 </html>

@@ -18,22 +18,23 @@
 </head>
 
 <body>
-<!-- Include _menu.html -->
-<th:block th:include="/_menu"></th:block>
 
-<h2>Add color</h2>
+    <!-- Include _menu.html -->
+    <th:block th:include="/_menu"></th:block>
 
-<form th:action="@{/color}" th:object="${color}" method="POST">
+    <div style="padding-left: 40px; padding-right: 40px; text-align:center">
+        <h2>Add color</h2>
+        <form th:action="@{/color}" th:object="${color}" method="POST">
 
-    <div class="form-group">
-        <input type="hidden" th:field="*{id}"/>
-        <label>Color</label>
-        <input type="text" class="form-control" placeholder="Enter color" th:field="*{color}"/>
-        <span th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></span>
+        <div class="form-group">
+            <input type="hidden" th:field="*{id}"/>
+            <label>Color</label>
+            <input style="width: 450px; margin: auto" type="text" class="form-control" placeholder="Enter color" th:field="*{color}"/>
+            <span th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></span>
+        </div>
+
+        <input type="submit" class="btn btn-success" value="Save"/>
+    </form>
     </div>
-
-    <input type="submit" class="btn btn-success" value="Save"/>
-</form>
-
 </body>
 </html>
